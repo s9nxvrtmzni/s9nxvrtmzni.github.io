@@ -1,0 +1,1379 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日主题大赛入口最新入口 - 官方赛事平台,影像创作社区</title>
+<meta name="description" content="每日主题大赛入口最新入口官方网站，聚焦影像创作的赛事平台，聚合每日命题、原创作品、创作者社区与企业品牌内容生态。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2317192b'/%3E%3Ccircle cx='32' cy='32' r='15' fill='none' stroke='%23ffb03a' stroke-width='4'/%3E%3Cpath d='M28 24 L44 32 L28 40 Z' fill='%23ffb03a'/%3E%3C/svg%3E">
+<style>
+:root{
+  --mtc-ink:#17192b;
+  --mtc-ink-soft:#4a4f66;
+  --mtc-paper:#f5f7fb;
+  --mtc-card:#ffffff;
+  --mtc-gold:#ffb03a;
+  --mtc-gold-deep:#e08b12;
+  --mtc-indigo:#1f2540;
+  --mtc-blue:#4b6cf6;
+  --mtc-mint:#22b8a0;
+  --mtc-line:#e2e6f0;
+  --mtc-shadow:0 14px 40px rgba(23,25,43,.10);
+  --mtc-radius:18px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:118px;}
+body{
+  margin:0;
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,-apple-system,sans-serif;
+  background:var(--mtc-paper);
+  color:var(--mtc-ink);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+ul,ol{margin:0;padding:0;list-style:none;}
+h1,h2,h3,h4{margin:0;line-height:1.35;}
+
+.mtc-wrap{width:min(1200px,92%);margin:0 auto;}
+
+/* ===== sticky top: notice + header ===== */
+.mtc-top{position:sticky;top:0;z-index:120;}
+.mtc-notice{
+  background:linear-gradient(90deg,var(--mtc-indigo),#2c3560 60%,#3a2b53);
+  color:#fff;font-size:13.5px;
+}
+.mtc-notice-inner{
+  display:flex;align-items:center;gap:14px;
+  padding:9px 0;overflow:hidden;
+}
+.mtc-notice-badge{
+  flex:0 0 auto;background:var(--mtc-gold);color:#241a05;
+  font-weight:700;font-size:11.5px;padding:2px 9px;border-radius:999px;letter-spacing:.5px;
+}
+.mtc-notice-scroll{
+  display:flex;gap:34px;white-space:nowrap;overflow:hidden;flex:1;
+  animation:mtcMarquee 38s linear infinite;
+}
+.mtc-notice-scroll:hover{animation-play-state:paused;}
+.mtc-notice-scroll span{opacity:.92;}
+.mtc-notice-scroll b{color:var(--mtc-gold);font-weight:600;}
+@keyframes mtcMarquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+.mtc-header{
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--mtc-line);
+}
+.mtc-header-inner{
+  display:flex;align-items:center;gap:20px;padding:12px 0;
+}
+.mtc-logo{display:flex;align-items:center;gap:11px;flex:0 0 auto;}
+.mtc-logo-mark{
+  width:42px;height:42px;border-radius:12px;
+  background:linear-gradient(140deg,var(--mtc-indigo),#333c6b);
+  display:grid;place-items:center;position:relative;
+}
+.mtc-logo-mark::after{
+  content:"";width:0;height:0;border-left:12px solid var(--mtc-gold);
+  border-top:7px solid transparent;border-bottom:7px solid transparent;margin-left:3px;
+}
+.mtc-logo-txt strong{display:block;font-size:17px;letter-spacing:.4px;}
+.mtc-logo-txt em{font-style:normal;font-size:11px;color:var(--mtc-ink-soft);letter-spacing:2px;}
+
+.mtc-nav{display:flex;gap:4px;flex:1;flex-wrap:wrap;}
+.mtc-nav a{
+  font-size:14.5px;padding:7px 13px;border-radius:9px;color:var(--mtc-ink-soft);
+  transition:.22s;font-weight:500;
+}
+.mtc-nav a:hover{background:#eef1fa;color:var(--mtc-indigo);}
+.mtc-nav a.mtc-nav-active{background:var(--mtc-indigo);color:#fff;}
+
+.mtc-head-tools{display:flex;align-items:center;gap:10px;flex:0 0 auto;}
+.mtc-search{position:relative;display:flex;align-items:center;}
+.mtc-search input{
+  width:196px;padding:9px 38px 9px 14px;border:1px solid var(--mtc-line);
+  border-radius:10px;background:#f7f8fc;font-size:13.5px;outline:none;transition:.25s;
+}
+.mtc-search input:focus{width:238px;border-color:var(--mtc-blue);background:#fff;box-shadow:0 0 0 3px rgba(75,108,246,.12);}
+.mtc-search button{
+  position:absolute;right:6px;top:50%;transform:translateY(-50%);
+  width:28px;height:28px;border-radius:8px;background:var(--mtc-indigo);color:#fff;
+  font-size:13px;display:grid;place-items:center;
+}
+.mtc-search-hint{
+  position:absolute;top:calc(100% + 8px);left:0;width:100%;
+  background:#fff;border:1px solid var(--mtc-line);border-radius:12px;box-shadow:var(--mtc-shadow);
+  padding:8px;font-size:13px;display:none;z-index:40;
+}
+.mtc-search-hint.mtc-open{display:block;}
+.mtc-search-hint p{margin:4px 6px;color:var(--mtc-ink-soft);font-size:12px;}
+.mtc-search-hint a{display:block;padding:7px 10px;border-radius:8px;}
+.mtc-search-hint a:hover{background:#f0f3fb;color:var(--mtc-blue);}
+.mtc-btn-ghost{
+  font-size:13.5px;padding:9px 15px;border-radius:10px;border:1px solid var(--mtc-line);
+  background:#fff;font-weight:500;transition:.22s;
+}
+.mtc-btn-ghost:hover{border-color:var(--mtc-indigo);color:var(--mtc-indigo);}
+.mtc-btn-gold{
+  font-size:13.5px;padding:9px 17px;border-radius:10px;font-weight:700;
+  background:linear-gradient(135deg,var(--mtc-gold),#ffcb6b);color:#2a1d00;
+  box-shadow:0 6px 16px rgba(255,176,58,.35);transition:.22s;
+}
+.mtc-btn-gold:hover{transform:translateY(-1px);box-shadow:0 9px 22px rgba(255,176,58,.45);}
+.mtc-burger{display:none;width:40px;height:40px;border-radius:10px;border:1px solid var(--mtc-line);background:#fff;font-size:18px;}
+
+/* ===== hero ===== */
+.mtc-hero{
+  background:
+    radial-gradient(900px 420px at 88% -10%,rgba(75,108,246,.20),transparent 65%),
+    radial-gradient(700px 380px at 8% 110%,rgba(255,176,58,.20),transparent 60%),
+    linear-gradient(160deg,#ffffff 0%,#eef1fa 100%);
+  border-bottom:1px solid var(--mtc-line);
+  overflow:hidden;
+}
+.mtc-hero-grid{
+  display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center;
+  padding:56px 0 62px;
+}
+.mtc-hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#fff;border:1px solid var(--mtc-line);border-radius:999px;
+  padding:6px 14px 6px 8px;font-size:12.5px;color:var(--mtc-ink-soft);
+  box-shadow:0 4px 14px rgba(23,25,43,.06);
+}
+.mtc-hero-tag i{
+  width:8px;height:8px;border-radius:50%;background:var(--mtc-mint);
+}
+.mtc-hero h1{
+  font-size:clamp(30px,4.1vw,50px);letter-spacing:-.5px;margin:20px 0 8px;
+}
+.mtc-hero h1 span{color:var(--mtc-gold-deep);}
+.mtc-hero-sub{font-size:17px;color:var(--mtc-ink-soft);font-weight:500;margin-bottom:16px;}
+.mtc-hero-desc{font-size:14.5px;color:var(--mtc-ink-soft);max-width:56ch;}
+.mtc-hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0 28px;}
+.mtc-btn-lg{
+  font-size:15px;font-weight:700;padding:13px 26px;border-radius:12px;
+  background:var(--mtc-indigo);color:#fff;box-shadow:0 10px 26px rgba(31,37,64,.28);
+  transition:.24s;display:inline-flex;align-items:center;gap:8px;
+}
+.mtc-btn-lg:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(31,37,64,.35);}
+.mtc-btn-lg.mtc-alt{background:#fff;color:var(--mtc-indigo);box-shadow:0 8px 20px rgba(23,25,43,.10);border:1px solid var(--mtc-line);}
+
+.mtc-stats{display:flex;gap:34px;flex-wrap:wrap;}
+.mtc-stats div strong{display:block;font-size:26px;letter-spacing:-.5px;color:var(--mtc-indigo);}
+.mtc-stats div span{font-size:12.5px;color:var(--mtc-ink-soft);}
+
+.mtc-hero-visual{position:relative;}
+.mtc-hero-figure{
+  position:relative;border-radius:22px;overflow:hidden;box-shadow:var(--mtc-shadow);
+  border:1px solid var(--mtc-line);background:#fff;
+}
+.mtc-hero-figure img{width:100%;aspect-ratio:16/10;object-fit:cover;}
+.mtc-hero-figure figcaption{
+  position:absolute;left:0;right:0;bottom:0;padding:32px 18px 14px;color:#fff;font-size:13px;
+  background:linear-gradient(to top,rgba(10,12,26,.86),transparent);
+  display:flex;justify-content:space-between;align-items:center;gap:10px;
+}
+.mtc-hero-float{
+  position:absolute;right:-14px;bottom:-24px;background:#fff;border-radius:16px;
+  padding:14px 18px;box-shadow:var(--mtc-shadow);border:1px solid var(--mtc-line);
+  display:flex;align-items:center;gap:12px;min-width:190px;
+}
+.mtc-hero-float b{font-size:22px;color:var(--mtc-gold-deep);display:block;}
+.mtc-hero-float span{font-size:12px;color:var(--mtc-ink-soft);}
+
+/* ===== sections generic ===== */
+.mtc-sec{padding:64px 0;}
+.mtc-sec-head{margin-bottom:34px;max-width:780px;}
+.mtc-sec-kicker{
+  font-size:12.5px;letter-spacing:2px;color:var(--mtc-gold-deep);font-weight:700;text-transform:uppercase;
+}
+.mtc-sec-head h2{font-size:clamp(23px,2.8vw,32px);margin:8px 0 10px;letter-spacing:-.3px;}
+.mtc-sec-head p{color:var(--mtc-ink-soft);font-size:14.5px;margin:0;}
+
+/* focus cards */
+.mtc-focus{display:grid;grid-template-columns:1.25fr .75fr;gap:22px;}
+.mtc-focus-main{
+  position:relative;border-radius:var(--mtc-radius);overflow:hidden;box-shadow:var(--mtc-shadow);
+}
+.mtc-focus-main img{width:100%;height:100%;min-height:380px;object-fit:cover;}
+.mtc-focus-main .mtc-focus-cap{
+  position:absolute;inset:auto 0 0 0;padding:80px 24px 22px;color:#fff;
+  background:linear-gradient(to top,rgba(8,10,24,.92) 20%,rgba(8,10,24,.15));
+}
+.mtc-focus-cap .mtc-chip{display:inline-block;background:var(--mtc-gold);color:#2a1d00;font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:999px;margin-bottom:10px;}
+.mtc-focus-cap h3{font-size:22px;margin-bottom:6px;}
+.mtc-focus-cap p{font-size:13px;color:#dfe3f2;margin:0 0 10px;}
+.mtc-focus-meta{display:flex;gap:16px;font-size:12px;color:#c9cfe6;flex-wrap:wrap;}
+.mtc-focus-side{display:grid;grid-template-rows:1fr 1fr;gap:22px;}
+.mtc-mini{
+  display:flex;gap:14px;background:var(--mtc-card);border:1px solid var(--mtc-line);
+  border-radius:var(--mtc-radius);padding:14px;transition:.25s;
+}
+.mtc-mini:hover{transform:translateY(-3px);box-shadow:var(--mtc-shadow);border-color:#ccd5ee;}
+.mtc-mini img{width:130px;height:88px;border-radius:12px;object-fit:cover;flex:0 0 auto;}
+.mtc-mini h4{font-size:14.5px;margin-bottom:4px;}
+.mtc-mini p{font-size:12.5px;color:var(--mtc-ink-soft);margin:0 0 6px;}
+.mtc-mini small{font-size:11.5px;color:#8b91a8;}
+
+/* video grid */
+.mtc-video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.mtc-vcard{
+  background:var(--mtc-card);border:1px solid var(--mtc-line);border-radius:var(--mtc-radius);
+  overflow:hidden;display:flex;flex-direction:column;transition:.28s;
+}
+.mtc-vcard:hover{transform:translateY(-4px);box-shadow:var(--mtc-shadow);border-color:#cbd4ef;}
+.mtc-vcover{position:relative;overflow:hidden;}
+.mtc-vcover img{width:100%;aspect-ratio:16/9;object-fit:cover;transition:.4s;}
+.mtc-vcard:hover .mtc-vcover img{transform:scale(1.05);}
+.mtc-vcover .mtc-play{
+  position:absolute;inset:0;display:grid;place-items:center;opacity:0;transition:.25s;
+  background:rgba(15,18,35,.32);
+}
+.mtc-vcard:hover .mtc-play{opacity:1;}
+.mtc-play span{
+  width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.92);
+  display:grid;place-items:center;
+}
+.mtc-play span::after{
+  content:"";width:0;height:0;border-left:15px solid var(--mtc-indigo);
+  border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px;
+}
+.mtc-vtag{
+  position:absolute;top:10px;left:10px;background:rgba(23,25,43,.82);color:#fff;
+  font-size:11px;padding:3px 9px;border-radius:999px;backdrop-filter:blur(4px);
+}
+.mtc-vdur{
+  position:absolute;bottom:10px;right:10px;background:rgba(8,10,24,.78);color:#fff;
+  font-size:11px;padding:2px 7px;border-radius:6px;
+}
+.mtc-vbody{padding:15px 16px 16px;display:flex;flex-direction:column;flex:1;}
+.mtc-vbody h3{font-size:15.5px;margin-bottom:7px;}
+.mtc-vbody p{font-size:12.8px;color:var(--mtc-ink-soft);margin:0 0 10px;flex:1;}
+.mtc-vmeta{display:flex;align-items:center;gap:8px;font-size:12px;color:#8b91a8;margin-bottom:12px;}
+.mtc-avatar{
+  width:26px;height:26px;border-radius:50%;display:grid;place-items:center;
+  font-size:11.5px;font-weight:700;color:#fff;flex:0 0 auto;
+}
+.mtc-vacts{display:flex;gap:8px;border-top:1px solid var(--mtc-line);padding-top:11px;}
+.mtc-act{
+  font-size:12.5px;color:var(--mtc-ink-soft);padding:5px 10px;border-radius:8px;
+  display:inline-flex;align-items:center;gap:5px;transition:.2s;
+}
+.mtc-act:hover{background:#f1f4fb;color:var(--mtc-indigo);}
+.mtc-act.mtc-on{color:#e0464f;}
+.mtc-act.mtc-on .mtc-ico{color:#e0464f;}
+
+/* topics */
+.mtc-topics{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+.mtc-topic{
+  position:relative;border-radius:16px;overflow:hidden;min-height:170px;color:#fff;
+  display:flex;flex-direction:column;justify-content:flex-end;padding:18px;transition:.28s;
+}
+.mtc-topic:hover{transform:translateY(-4px);}
+.mtc-topic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+.mtc-topic::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(9,11,25,.9),rgba(9,11,25,.1));z-index:1;}
+.mtc-topic h3{position:relative;z-index:2;font-size:16px;margin-bottom:5px;}
+.mtc-topic p{position:relative;z-index:2;font-size:12px;color:#d8ddf0;margin:0;}
+.mtc-topic .mtc-tstate{
+  position:relative;z-index:2;font-size:11px;margin-top:8px;color:var(--mtc-gold);
+}
+
+/* about / long text */
+.mtc-about{background:#fff;border-top:1px solid var(--mtc-line);border-bottom:1px solid var(--mtc-line);}
+.mtc-about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:start;}
+.mtc-about-aside{
+  background:linear-gradient(160deg,var(--mtc-indigo),#2f3866);
+  color:#fff;border-radius:20px;padding:30px;box-shadow:var(--mtc-shadow);
+}
+.mtc-about-aside h3{font-size:19px;margin-bottom:14px;}
+.mtc-about-aside p{font-size:13.5px;color:#c6cce6;margin:0 0 12px;}
+.mtc-about-aside ul li{
+  font-size:13px;color:#dbe0f2;padding:7px 0;border-bottom:1px dashed rgba(255,255,255,.16);
+  display:flex;justify-content:space-between;gap:10px;
+}
+.mtc-about-aside ul li:last-child{border-bottom:none;}
+.mtc-about-aside ul li b{color:var(--mtc-gold);}
+.mtc-longtext p{font-size:14.6px;color:var(--mtc-ink-soft);margin:0 0 16px;text-align:justify;}
+.mtc-longtext h3{font-size:17px;margin:22px 0 10px;color:var(--mtc-indigo);}
+
+/* creators */
+.mtc-creators{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.mtc-creator{
+  background:var(--mtc-card);border:1px solid var(--mtc-line);border-radius:16px;
+  padding:22px 18px;text-align:center;transition:.28s;cursor:pointer;
+}
+.mtc-creator:hover{transform:translateY(-4px);box-shadow:var(--mtc-shadow);border-color:#cbd4ef;}
+.mtc-creator .mtc-avatar{width:64px;height:64px;font-size:22px;margin:0 auto 12px;}
+.mtc-creator h3{font-size:15px;margin-bottom:4px;}
+.mtc-creator .mtc-crole{font-size:12px;color:var(--mtc-gold-deep);font-weight:600;margin-bottom:8px;}
+.mtc-creator p{font-size:12.5px;color:var(--mtc-ink-soft);margin:0 0 10px;}
+.mtc-cstat{display:flex;justify-content:center;gap:16px;font-size:11.5px;color:#8b91a8;}
+.mtc-cstat b{color:var(--mtc-indigo);}
+
+/* wall */
+.mtc-wall{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:110px;gap:14px;}
+.mtc-wall figure{margin:0;border-radius:14px;overflow:hidden;position:relative;cursor:pointer;}
+.mtc-wall figure img{width:100%;height:100%;object-fit:cover;transition:.4s;}
+.mtc-wall figure:hover img{transform:scale(1.06);}
+.mtc-wall figcaption{
+  position:absolute;inset:auto 0 0 0;padding:24px 12px 9px;color:#fff;font-size:11.5px;
+  background:linear-gradient(to top,rgba(8,10,24,.88),transparent);
+  opacity:0;transition:.25s;
+}
+.mtc-wall figure:hover figcaption{opacity:1;}
+.mtc-wall .mtc-w-big{grid-column:span 3;grid-row:span 2;}
+.mtc-wall .mtc-w-mid{grid-column:span 2;grid-row:span 2;}
+.mtc-wall .mtc-w-sm{grid-column:span 2;grid-row:span 1;}
+.mtc-wall .mtc-w-tall{grid-column:span 1;grid-row:span 2;}
+
+/* reviews */
+.mtc-reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.mtc-review{
+  background:var(--mtc-card);border:1px solid var(--mtc-line);border-radius:16px;padding:20px;
+  display:flex;flex-direction:column;gap:12px;transition:.25s;
+}
+.mtc-review:hover{box-shadow:var(--mtc-shadow);transform:translateY(-3px);}
+.mtc-review-top{display:flex;align-items:center;gap:10px;}
+.mtc-review-top h4{font-size:13.5px;}
+.mtc-review-top small{font-size:11.5px;color:#8b91a8;display:block;}
+.mtc-review p{font-size:13.2px;color:var(--mtc-ink-soft);margin:0;flex:1;}
+.mtc-stars{color:var(--mtc-gold);font-size:12.5px;letter-spacing:2px;}
+
+/* news */
+.mtc-news{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.mtc-newscard{
+  display:flex;gap:16px;background:#fff;border:1px solid var(--mtc-line);border-radius:16px;
+  padding:18px;transition:.25s;
+}
+.mtc-newscard:hover{border-color:#cbd4ef;box-shadow:0 10px 26px rgba(23,25,43,.07);}
+.mtc-newsdate{
+  flex:0 0 auto;width:64px;text-align:center;border-right:1px solid var(--mtc-line);padding-right:14px;
+}
+.mtc-newsdate b{display:block;font-size:22px;color:var(--mtc-indigo);line-height:1.1;}
+.mtc-newsdate span{font-size:11.5px;color:#8b91a8;}
+.mtc-newscard h3{font-size:14.5px;margin-bottom:5px;}
+.mtc-newscard p{font-size:12.6px;color:var(--mtc-ink-soft);margin:0;}
+
+/* faq */
+.mtc-faq{max-width:900px;margin:0 auto;}
+.mtc-faq details{
+  background:#fff;border:1px solid var(--mtc-line);border-radius:13px;margin-bottom:12px;
+  overflow:hidden;transition:.22s;
+}
+.mtc-faq details[open]{border-color:#c3cdf0;box-shadow:0 8px 22px rgba(23,25,43,.07);}
+.mtc-faq summary{
+  padding:16px 20px;font-size:14.5px;font-weight:600;cursor:pointer;list-style:none;
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+}
+.mtc-faq summary::-webkit-details-marker{display:none;}
+.mtc-faq summary::after{content:"+";font-size:20px;color:var(--mtc-gold-deep);font-weight:400;transition:.22s;}
+.mtc-faq details[open] summary::after{transform:rotate(45deg);}
+.mtc-faq .mtc-faq-a{padding:0 20px 18px;font-size:13.6px;color:var(--mtc-ink-soft);}
+
+/* contact */
+.mtc-contact{
+  background:linear-gradient(150deg,#1c2340,#2d3766 62%,#4a3350);
+  color:#fff;border-radius:24px;padding:46px;display:grid;
+  grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;box-shadow:var(--mtc-shadow);
+}
+.mtc-contact h2{font-size:clamp(22px,2.6vw,30px);margin-bottom:12px;color:#fff;}
+.mtc-contact p{font-size:14px;color:#c3cae3;margin:0 0 20px;}
+.mtc-contact-list{display:flex;flex-wrap:wrap;gap:12px;}
+.mtc-contact-list li{
+  font-size:12.8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);
+  padding:8px 14px;border-radius:10px;color:#e6e9f6;
+}
+.mtc-contact-form{display:flex;flex-direction:column;gap:12px;}
+.mtc-contact-form input,.mtc-contact-form textarea{
+  width:100%;padding:11px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.07);color:#fff;font-size:13.5px;outline:none;font-family:inherit;
+}
+.mtc-contact-form input::placeholder,.mtc-contact-form textarea::placeholder{color:#9aa2c2;}
+.mtc-contact-form textarea{resize:vertical;min-height:84px;}
+.mtc-contact-form .mtc-btn-gold{
+  align-self:flex-start;padding:11px 26px;border-radius:10px;font-size:14px;
+}
+
+/* footer */
+.mtc-footer{background:#12162a;color:#a9b0c9;padding:52px 0 26px;margin-top:20px;}
+.mtc-footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:34px;margin-bottom:36px;}
+.mtc-footer h4{color:#fff;font-size:14.5px;margin-bottom:14px;}
+.mtc-footer p{font-size:12.8px;line-height:1.9;margin:0;}
+.mtc-footer li{font-size:12.8px;padding:5px 0;}
+.mtc-footer li a:hover{color:var(--mtc-gold);}
+.mtc-footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.mtc-footer-brand .mtc-logo-mark{width:36px;height:36px;border-radius:10px;}
+.mtc-footer-brand strong{color:#fff;font-size:15px;}
+.mtc-footer-bottom{
+  border-top:1px solid rgba(255,255,255,.1);padding-top:20px;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12px;color:#7f87a1;
+}
+
+/* toast & modal */
+.mtc-toast{
+  position:fixed;left:50%;bottom:34px;transform:translate(-50%,24px);
+  background:rgba(20,24,44,.95);color:#fff;font-size:13.5px;padding:11px 22px;border-radius:11px;
+  opacity:0;pointer-events:none;transition:.3s;z-index:400;box-shadow:0 12px 30px rgba(0,0,0,.3);
+}
+.mtc-toast.mtc-show{opacity:1;transform:translate(-50%,0);}
+.mtc-modal{
+  position:fixed;inset:0;background:rgba(11,14,28,.62);display:none;place-items:center;z-index:500;
+  padding:20px;backdrop-filter:blur(3px);
+}
+.mtc-modal.mtc-open{display:grid;}
+.mtc-modal-box{
+  background:#fff;border-radius:18px;width:min(480px,100%);padding:28px;
+  box-shadow:0 24px 60px rgba(0,0,0,.3);position:relative;
+}
+.mtc-modal-box h3{font-size:18px;margin-bottom:10px;}
+.mtc-modal-box p{font-size:13.5px;color:var(--mtc-ink-soft);margin:0 0 18px;}
+.mtc-modal-close{
+  position:absolute;top:14px;right:16px;font-size:20px;color:#8b91a8;line-height:1;width:30px;height:30px;border-radius:8px;
+}
+.mtc-modal-close:hover{background:#f1f4fb;color:var(--mtc-indigo);}
+.mtc-modal-box form{display:flex;flex-direction:column;gap:11px;}
+.mtc-modal-box input,.mtc-modal-box textarea{
+  padding:11px 14px;border:1px solid var(--mtc-line);border-radius:10px;font-size:13.5px;
+  outline:none;font-family:inherit;transition:.2s;
+}
+.mtc-modal-box input:focus,.mtc-modal-box textarea:focus{border-color:var(--mtc-blue);box-shadow:0 0 0 3px rgba(75,108,246,.12);}
+.mtc-modal-box textarea{min-height:80px;resize:vertical;}
+
+/* back to top */
+.mtc-top-btn{
+  position:fixed;right:24px;bottom:26px;width:46px;height:46px;border-radius:50%;
+  background:var(--mtc-indigo);color:#fff;font-size:18px;display:grid;place-items:center;
+  box-shadow:0 10px 24px rgba(23,25,43,.3);opacity:0;pointer-events:none;transition:.28s;z-index:180;
+}
+.mtc-top-btn.mtc-show{opacity:1;pointer-events:auto;}
+.mtc-top-btn:hover{background:var(--mtc-gold-deep);transform:translateY(-3px);}
+
+/* responsive */
+@media (max-width:1080px){
+  .mtc-hero-grid{grid-template-columns:1fr;gap:34px;}
+  .mtc-focus{grid-template-columns:1fr;}
+  .mtc-video-grid{grid-template-columns:repeat(2,1fr);}
+  .mtc-topics{grid-template-columns:repeat(2,1fr);}
+  .mtc-creators{grid-template-columns:repeat(2,1fr);}
+  .mtc-reviews{grid-template-columns:repeat(2,1fr);}
+  .mtc-about-grid{grid-template-columns:1fr;gap:30px;}
+  .mtc-contact{grid-template-columns:1fr;padding:32px;}
+  .mtc-footer-grid{grid-template-columns:1fr 1fr;}
+  .mtc-wall{grid-template-columns:repeat(4,1fr);}
+  .mtc-wall .mtc-w-big{grid-column:span 2;}
+}
+@media (max-width:760px){
+  html{scroll-padding-top:104px;}
+  .mtc-nav{
+    display:none;position:absolute;top:100%;left:0;right:0;background:#fff;
+    flex-direction:column;padding:10px 5%;border-bottom:1px solid var(--mtc-line);
+    box-shadow:0 14px 26px rgba(23,25,43,.1);
+  }
+  .mtc-nav.mtc-nav-open{display:flex;}
+  .mtc-header-inner{flex-wrap:wrap;position:relative;gap:10px;}
+  .mtc-burger{display:grid;place-items:center;order:3;}
+  .mtc-head-tools{order:2;flex:1;justify-content:flex-end;}
+  .mtc-search input{width:132px;}
+  .mtc-search input:focus{width:152px;}
+  .mtc-btn-ghost{display:none;}
+  .mtc-hero-grid{padding:38px 0 44px;}
+  .mtc-stats{gap:22px;}
+  .mtc-stats div strong{font-size:22px;}
+  .mtc-video-grid,.mtc-topics,.mtc-creators,.mtc-reviews,.mtc-news{grid-template-columns:1fr;}
+  .mtc-focus-side{grid-template-rows:auto auto;}
+  .mtc-wall{grid-template-columns:repeat(2,1fr);grid-auto-rows:130px;}
+  .mtc-wall .mtc-w-big,.mtc-wall .mtc-w-mid,.mtc-wall .mtc-w-sm,.mtc-wall .mtc-w-tall{grid-column:span 2;grid-row:span 1;}
+  .mtc-footer-grid{grid-template-columns:1fr;gap:26px;}
+  .mtc-sec{padding:46px 0;}
+  .mtc-contact{padding:26px;border-radius:18px;}
+  .mtc-mini{flex-direction:column;}
+  .mtc-mini img{width:100%;height:auto;aspect-ratio:16/9;}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="mtc-top">
+  <div class="mtc-notice">
+    <div class="mtc-wrap mtc-notice-inner">
+      <span class="mtc-notice-badge">官方公告</span>
+      <div class="mtc-notice-scroll" id="mtcNoticeScroll">
+        <span><b>11月19日</b> 第 128 期主题「城市清晨的十分钟」命题已发布，报名通道开放至 23:00</span>
+        <span><b>新增</b> 每日主题大赛入口最新入口聚合页，一站直达今日命题、昨日佳作与评审点评</span>
+        <span><b>官方发布</b> 11 月创作者激励计划细则，优质作品可获得品牌内容生态推荐位</span>
+        <span><b>更新</b> 作品上传支持 4K 高清导出与封面自选，投稿指南同步修订</span>
+        <span><b>公告</b> 第 127 期「手作一日」获奖名单公示，共 24 件作品入选精品内容</span>
+        <span><b>11月19日</b> 第 128 期主题「城市清晨的十分钟」命题已发布，报名通道开放至 23:00</span>
+        <span><b>新增</b> 每日主题大赛入口最新入口聚合页，一站直达今日命题、昨日佳作与评审点评</span>
+        <span><b>官方发布</b> 11 月创作者激励计划细则，优质作品可获得品牌内容生态推荐位</span>
+        <span><b>更新</b> 作品上传支持 4K 高清导出与封面自选，投稿指南同步修订</span>
+        <span><b>公告</b> 第 127 期「手作一日」获奖名单公示，共 24 件作品入选精品内容</span>
+      </div>
+    </div>
+  </div>
+
+  <header class="mtc-header">
+    <div class="mtc-wrap mtc-header-inner">
+      <a class="mtc-logo" href="#mtcHome" aria-label="每日主题大赛官方网站首页">
+        <span class="mtc-logo-mark" aria-hidden="true"></span>
+        <span class="mtc-logo-txt">
+          <strong>每日主题大赛</strong>
+          <em>DAILY THEME ARENA</em>
+        </span>
+      </a>
+      <nav class="mtc-nav" id="mtcNav" aria-label="主导航">
+        <a href="#mtcHome" class="mtc-nav-active">首页</a>
+        <a href="#mtcFocus">今日焦点</a>
+        <a href="#mtcTopics">主题专题</a>
+        <a href="#mtcCreators">创作者</a>
+        <a href="#mtcAbout">品牌解析</a>
+        <a href="#mtcNews">企业动态</a>
+        <a href="#mtcFaq">帮助</a>
+        <a href="#mtcContact">联系</a>
+      </nav>
+      <div class="mtc-head-tools">
+        <div class="mtc-search">
+          <input type="text" id="mtcSearchInput" placeholder="搜索主题 / 创作者" aria-label="站内搜索">
+          <button type="button" id="mtcSearchBtn" aria-label="搜索">搜</button>
+          <div class="mtc-search-hint" id="mtcSearchHint"></div>
+        </div>
+        <button type="button" class="mtc-btn-ghost" id="mtcSubmitBtn">投稿</button>
+        <button type="button" class="mtc-btn-gold" id="mtcJoinBtn">立即报名</button>
+        <button type="button" class="mtc-burger" id="mtcBurger" aria-label="展开导航" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+</div>
+
+<main>
+  <!-- HERO -->
+  <section class="mtc-hero" id="mtcHome">
+    <div class="mtc-wrap mtc-hero-grid">
+      <div>
+        <span class="mtc-hero-tag"><i></i> 官方网站 · 每日命题 · 官方发布</span>
+        <h1>每日主题大赛入口最新入口</h1>
+        <p class="mtc-hero-sub">一扇门，通向今天所有创作者的共同命题</p>
+        <p class="mtc-hero-desc">
+          这里是每日主题大赛的官方网站。作为持续运营的影像赛事与内容生态平台，我们每天发布一个主题命题，
+          聚合原创作品、评审点评与创作者社区，让「今天拍什么」不再是一个人的困惑，而成为一群人的共同行动。
+          企业、品牌与个人创作者在这里同场，用真实的镜头参与讨论，用专业的态度打磨精品内容。
+        </p>
+        <div class="mtc-hero-actions">
+          <a href="#mtcFocus" class="mtc-btn-lg">查看今日命题 <span aria-hidden="true">→</span></a>
+          <button type="button" class="mtc-btn-lg mtc-alt" id="mtcHeroSubmit">我要投稿参赛</button>
+        </div>
+        <div class="mtc-stats">
+          <div><strong data-mtc-count="128">128</strong><span>已完成期数</span></div>
+          <div><strong data-mtc-count="42680">42,680</strong><span>累计参赛作品</span></div>
+          <div><strong data-mtc-count="9600">9,600</strong><span>入驻创作者</span></div>
+        </div>
+      </div>
+      <div class="mtc-hero-visual">
+        <figure class="mtc-hero-figure">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Cdefs%3E%3ClinearGradient id='sky' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23223060'/%3E%3Cstop offset='0.55' stop-color='%234a5a9a'/%3E%3Cstop offset='1' stop-color='%23f0a75a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='500' fill='url(%23sky)'/%3E%3Ccircle cx='610' cy='330' r='78' fill='%23ffd88a' opacity='0.92'/%3E%3Cg fill='%23131930'%3E%3Crect x='0' y='330' width='120' height='170'/%3E%3Crect x='110' y='290' width='90' height='210'/%3E%3Crect x='200' y='350' width='140' height='150'/%3E%3Crect x='330' y='270' width='80' height='230'/%3E%3Crect x='410' y='340' width='130' height='160'/%3E%3Crect x='540' y='300' width='100' height='200'/%3E%3Crect x='640' y='355' width='160' height='145'/%3E%3C/g%3E%3Cg fill='%23ffdf9e' opacity='0.75'%3E%3Crect x='128' y='312' width='12' height='16'/%3E%3Crect x='152' y='312' width='12' height='16'/%3E%3Crect x='128' y='342' width='12' height='16'/%3E%3Crect x='222' y='372' width='12' height='16'/%3E%3Crect x='252' y='372' width='12' height='16'/%3E%3Crect x='348' y='296' width='12' height='16'/%3E%3Crect x='348' y='326' width='12' height='16'/%3E%3Crect x='560' y='322' width='12' height='16'/%3E%3Crect x='588' y='322' width='12' height='16'/%3E%3Crect x='668' y='378' width='12' height='16'/%3E%3C/g%3E%3Cg fill='%230c1022'%3E%3Crect x='0' y='452' width='800' height='48'/%3E%3C/g%3E%3Cg stroke='%23ffffff' stroke-opacity='0.9' stroke-width='3'%3E%3Ccircle cx='400' cy='238' r='34' fill='none'/%3E%3Cpath d='M388 222 L418 238 L388 254 Z' fill='%23ffffff'/%3E%3C/g%3E%3C/svg%3E" alt="每日主题大赛首屏主视觉：清晨城市天际线与播放标识">
+          <figcaption>
+            <span>今日命题 · 城市清晨的十分钟</span>
+            <span>第 128 期</span>
+          </figcaption>
+        </figure>
+        <div class="mtc-hero-float">
+          <div>
+            <b id="mtcTodayCount">1,284</b>
+            <span>今日已提交作品</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOCUS -->
+  <section class="mtc-sec" id="mtcFocus">
+    <div class="mtc-wrap">
+      <div class="mtc-sec-head">
+        <span class="mtc-sec-kicker">今日焦点 / Today</span>
+        <h2>今天的命题只有一个，回答的方式有千万种</h2>
+        <p>每日主题大赛的入口每天 00:00 更新，命题、评审线与上传通道同步开启。以下为今日焦点作品与即时推荐。</p>
+      </div>
+      <div class="mtc-focus">
+        <article class="mtc-focus-main">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 760 560'%3E%3Cdefs%3E%3ClinearGradient id='g1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23f7b267'/%3E%3Cstop offset='1' stop-color='%23d65a3a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='760' height='560' fill='url(%23g1)'/%3E%3Ccircle cx='570' cy='150' r='92' fill='%23fff3d6' opacity='0.85'/%3E%3Cg fill='%23251c14' opacity='0.9'%3E%3Crect x='0' y='400' width='760' height='160'/%3E%3Crect x='70' y='300' width='60' height='160'/%3E%3Crect x='150' y='250' width='46' height='210'/%3E%3Crect x='230' y='330' width='70' height='130'/%3E%3C/g%3E%3Cg stroke='%23fff' stroke-width='4' fill='none' opacity='0.9'%3E%3Ccircle cx='380' cy='250' r='46'/%3E%3Cpath d='M364 228 L404 250 L364 272 Z' fill='%23fff'/%3E%3C/g%3E%3Cg fill='%23ffd9a0' opacity='0.8'%3E%3Crect x='84' y='318' width='10' height='14'/%3E%3Crect x='160' y='270' width='10' height='14'/%3E%3Crect x='246' y='348' width='10' height='14'/%3E%3C/g%3E%3C/svg%3E" alt="今日焦点作品封面：城市清晨的十分钟，巷口第一缕光">
+          <div class="mtc-focus-cap">
+            <span class="mtc-chip">编辑推荐</span>
+            <h3>《六点零七分，巷子醒来的那一刻》</h3>
+            <p>作者用十分钟单镜头记录老城区早点摊开张的全过程，没有旁白，只有锅铲与脚步声。评审称其为「把日常拍出了重量」。</p>
+            <div class="mtc-focus-meta">
+              <span>作者：巷口阿茶</span>
+              <span>时长 10:00</span>
+              <span>点赞 4,812</span>
+              <span>收藏 1,206</span>
+            </div>
+          </div>
+        </article>
+        <div class="mtc-focus-side">
+          <article class="mtc-mini">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 200'%3E%3Crect width='320' height='200' fill='%231b2f4a'/%3E%3Cg stroke='%2366c2ff' stroke-width='2' fill='none' opacity='0.7'%3E%3Cpath d='M0 150 L60 110 L120 140 L180 90 L240 130 L320 80'/%3E%3Cpath d='M0 170 L60 140 L120 160 L180 120 L240 155 L320 110'/%3E%3C/g%3E%3Ccircle cx='240' cy='60' r='28' fill='%23ffd166' opacity='0.85'/%3E%3C/svg%3E" alt="推荐作品封面：地铁首班车的时间线记录">
+            <div>
+              <h4>《首班车经过的第七个站台》</h4>
+              <p>用固定机位记录通勤者的一天开端，克制而温暖。</p>
+              <small>作者 林间有雾 · 热度 3,190</small>
+            </div>
+          </article>
+          <article class="mtc-mini">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 200'%3E%3Crect width='320' height='200' fill='%23e8f2e6'/%3E%3Cg fill='%233f7d4a'%3E%3Ccircle cx='70' cy='130' r='46'/%3E%3Ccircle cx='130' cy='110' r='34'/%3E%3Ccircle cx='200' cy='140' r='52'/%3E%3Ccircle cx='265' cy='118' r='30'/%3E%3C/g%3E%3Crect x='0' y='168' width='320' height='32' fill='%23234c2b'/%3E%3Cg stroke='%23fff' stroke-width='3' fill='none'%3E%3Ccircle cx='160' cy='70' r='22'/%3E%3Cpath d='M152 60 L172 70 L152 80 Z' fill='%23fff'/%3E%3C/g%3E%3C/svg%3E" alt="推荐作品封面：阳台绿植在晨光里的细微变化">
+            <div>
+              <h4>《给三盆植物浇水的时间》</h4>
+              <p>一次极慢的生活记录，被评论区称为「治愈影像样本」。</p>
+              <small>作者 慢半拍 · 热度 2,764</small>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO STREAM -->
+  <section class="mtc-sec" id="mtcStream" style="padding-top:0;">
+    <div class="mtc-wrap">
+      <div class="mtc-sec-head">
+        <span class="mtc-sec-kicker">热门作品流 / Stream</span>
+        <h2>每日主题大赛的精品内容，都在这里持续生长</h2>
+        <p>从命题发布到作品归档，社区、创作者与评审共同构成内容生态。以下作品来自近三日的主题场次。</p>
+      </div>
+      <div class="mtc-video-grid" id="mtcVideoGrid">
+
+        <article class="mtc-vcard">
+          <div class="mtc-vcover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Cdefs%3E%3ClinearGradient id='a1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ffd6a5'/%3E%3Cstop offset='1' stop-color='%23e07a5f'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='480' height='270' fill='url(%23a1)'/%3E%3Ccircle cx='370' cy='80' r='46' fill='%23fff4e6' opacity='0.9'/%3E%3Cpath d='M0 200 Q120 150 240 190 T480 170 L480 270 L0 270 Z' fill='%237a3b23' opacity='0.85'/%3E%3Crect x='60' y='150' width='14' height='60' fill='%23572a17'/%3E%3Crect x='120' y='170' width='10' height='40' fill='%23572a17'/%3E%3C/svg%3E" alt="作品封面：早餐摊的第一锅油条">
+            <span class="mtc-vtag">日常记录</span>
+            <span class="mtc-vdur">08:24</span>
+            <div class="mtc-play"><span></span></div>
+          </div>
+          <div class="mtc-vbody">
+            <h3>早餐摊的第一锅油条，和排队的人</h3>
+            <p>清晨四点出摊，六点售罄。镜头里的热气，就是城市最早的呼吸。</p>
+            <div class="mtc-vmeta">
+              <span class="mtc-avatar" style="background:#e07a5f;">巷</span>
+              <span>巷口阿茶</span>
+              <span>· 2.1万 播放</span>
+            </div>
+            <div class="mtc-vacts">
+              <button type="button" class="mtc-act mtc-like"><span class="mtc-ico">♡</span> <b>482</b></button>
+              <button type="button" class="mtc-act mtc-fav"><span class="mtc-ico">☆</span> 收藏</button>
+              <button type="button" class="mtc-act mtc-share">分享</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="mtc-vcard">
+          <div class="mtc-vcover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23142233'/%3E%3Cg stroke='%234b6cf6' stroke-width='3' fill='none' opacity='0.8'%3E%3Crect x='60' y='60' width='360' height='150' rx='10'/%3E%3Cpath d='M60 120 L420 120 M60 160 L420 160'/%3E%3C/g%3E%3Cg fill='%23ffb03a'%3E%3Crect x='90' y='90' width='40' height='18'/%3E%3Crect x='170' y='90' width='90' height='18'/%3E%3Crect x='300' y='90' width='60' height='18'/%3E%3Crect x='90' y='135' width='110' height='14'/%3E%3Crect x='240' y='135' width='140' height='14'/%3E%3Crect x='90' y='175' width='70' height='14'/%3E%3Crect x='200' y='175' width='60' height='14'/%3E%3C/g%3E%3C/svg%3E" alt="作品封面：剪辑时间轴与脚本分镜">
+            <span class="mtc-vtag">教程干货</span>
+            <span class="mtc-vdur">14:02</span>
+            <div class="mtc-play"><span></span></div>
+          </div>
+          <div class="mtc-vbody">
+            <h3>十分钟短片怎么剪？我的分镜与节奏模板</h3>
+            <p>从脚本到粗剪再到配乐，把限时命题的流程拆成可复用的六个步骤。</p>
+            <div class="mtc-vmeta">
+              <span class="mtc-avatar" style="background:#4b6cf6;">剪</span>
+              <span>剪辑师老周</span>
+              <span>· 3.8万 播放</span>
+            </div>
+            <div class="mtc-vacts">
+              <button type="button" class="mtc-act mtc-like"><span class="mtc-ico">♡</span> <b>1,203</b></button>
+              <button type="button" class="mtc-act mtc-fav"><span class="mtc-ico">☆</span> 收藏</button>
+              <button type="button" class="mtc-act mtc-share">分享</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="mtc-vcard">
+          <div class="mtc-vcover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23f2f5ec'/%3E%3Cg fill='%23b9c9a8'%3E%3Ccircle cx='120' cy='200' r='70'/%3E%3Ccircle cx='240' cy='180' r='56'/%3E%3Ccircle cx='350' cy='210' r='62'/%3E%3C/g%3E%3Cg fill='%235d7a4a'%3E%3Crect x='160' y='80' width='8' height='120'/%3E%3Crect x='300' y='60' width='8' height='140'/%3E%3C/g%3E%3Crect x='0' y='230' width='480' height='40' fill='%233f5233'/%3E%3C/svg%3E" alt="作品封面：手作陶土完整拉坯过程">
+            <span class="mtc-vtag">手作DIY</span>
+            <span class="mtc-vdur">11:37</span>
+            <div class="mtc-play"><span></span></div>
+          </div>
+          <div class="mtc-vbody">
+            <h3>第一次拉坯失败七次，第八次成了</h3>
+            <p>手作的真实感在于不完美。记录一次从塌陷到成形的完整过程。</p>
+            <div class="mtc-vmeta">
+              <span class="mtc-avatar" style="background:#5d7a4a;">陶</span>
+              <span>陶土下午茶</span>
+              <span>· 1.6万 播放</span>
+            </div>
+            <div class="mtc-vacts">
+              <button type="button" class="mtc-act mtc-like"><span class="mtc-ico">♡</span> <b>906</b></button>
+              <button type="button" class="mtc-act mtc-fav"><span class="mtc-ico">☆</span> 收藏</button>
+              <button type="button" class="mtc-act mtc-share">分享</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="mtc-vcard">
+          <div class="mtc-vcover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%232a1e36'/%3E%3Cg fill='%239b7bd1' opacity='0.7'%3E%3Ccircle cx='90' cy='220' r='80'/%3E%3Ccircle cx='220' cy='250' r='70'/%3E%3C/g%3E%3Cg fill='%23ffd166'%3E%3Ccircle cx='350' cy='70' r='34'/%3E%3Crect x='340' y='90' width='20' height='90'/%3E%3C/g%3E%3Cg stroke='%23f3e8ff' stroke-width='2' opacity='0.6' fill='none'%3E%3Cpath d='M40 70 L120 90 L200 60 L280 100'/%3E%3C/g%3E%3C/svg%3E" alt="作品封面：夜晚天台的音乐现场">
+            <span class="mtc-vtag">音乐现场</span>
+            <span class="mtc-vdur">06:50</span>
+            <div class="mtc-play"><span></span></div>
+          </div>
+          <div class="mtc-vbody">
+            <h3>天台上的一首即兴，和楼下的车流声</h3>
+            <p>不插电，不修音。城市噪音成了伴奏，这是命题之外意外的好。</p>
+            <div class="mtc-vmeta">
+              <span class="mtc-avatar" style="background:#9b7bd1;">夜</span>
+              <span>夜行电台</span>
+              <span>· 2.9万 播放</span>
+            </div>
+            <div class="mtc-vacts">
+              <button type="button" class="mtc-act mtc-like"><span class="mtc-ico">♡</span> <b>1,584</b></button>
+              <button type="button" class="mtc-act mtc-fav"><span class="mtc-ico">☆</span> 收藏</button>
+              <button type="button" class="mtc-act mtc-share">分享</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="mtc-vcard">
+          <div class="mtc-vcover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23dbe9f4'/%3E%3Cg fill='%234a6f93'%3E%3Crect x='40' y='120' width='90' height='150'/%3E%3Crect x='150' y='90' width='60' height='180'/%3E%3Crect x='230' y='140' width='110' height='130'/%3E%3Crect x='360' y='110' width='80' height='160'/%3E%3C/g%3E%3Cg fill='%23ffffff' opacity='0.65'%3E%3Crect x='56' y='140' width='14' height='18'/%3E%3Crect x='88' y='140' width='14' height='18'/%3E%3Crect x='162' y='112' width='14' height='18'/%3E%3Crect x='254' y='162' width='14' height='18'/%3E%3Crect x='288' y='162' width='14' height='18'/%3E%3C/g%3E%3Ccircle cx='400' cy='60' r='30' fill='%23ffd166'/%3E%3C/svg%3E" alt="作品封面：旅行途中的海边小城建筑">
+            <span class="mtc-vtag">旅行见闻</span>
+            <span class="mtc-vdur">09:15</span>
+            <div class="mtc-play"><span></span></div>
+          </div>
+          <div class="mtc-vbody">
+            <h3>在临海小城住了三天，只做了一件事</h3>
+            <p>不打卡，不赶路。每天同一时间坐在同一级台阶上，等同一片海。</p>
+            <div class="mtc-vmeta">
+              <span class="mtc-avatar" style="background:#4a6f93;">旅</span>
+              <span>背包与海</span>
+              <span>· 2.3万 播放</span>
+            </div>
+            <div class="mtc-vacts">
+              <button type="button" class="mtc-act mtc-like"><span class="mtc-ico">♡</span> <b>1,120</b></button>
+              <button type="button" class="mtc-act mtc-fav"><span class="mtc-ico">☆</span> 收藏</button>
+              <button type="button" class="mtc-act mtc-share">分享</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="mtc-vcard">
+          <div class="mtc-vcover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23fdf0d5'/%3E%3Cg fill='%23c98b3b'%3E%3Ccircle cx='120' cy='130' r='56'/%3E%3Ccircle cx='240' cy='150' r='48'/%3E%3Ccircle cx='350' cy='120' r='52'/%3E%3C/g%3E%3Cg fill='%238a5a1f'%3E%3Crect x='100' y='180' width='300' height='20' rx='8'/%3E%3C/g%3E%3Cg fill='%23ffffff' opacity='0.8'%3E%3Ccircle cx='120' cy='118' r='10'/%3E%3Ccircle cx='240' cy='138' r='8'/%3E%3Ccircle cx='350' cy='108' r='9'/%3E%3C/g%3E%3C/svg%3E" alt="作品封面：家庭厨房里的面点制作">
+            <span class="mtc-vtag">美食烹饪</span>
+            <span class="mtc-vdur">12:08</span>
+            <div class="mtc-play"><span></span></div>
+          </div>
+          <div class="mtc-vbody">
+            <h3>外婆的配方，我拍了三遍才对上味</h3>
+            <p>面粉、水温、醒发时间，细节里全是记忆。第三遍终于吃到熟悉的味道。</p>
+            <div class="mtc-vmeta">
+              <span class="mtc-avatar" style="background:#c98b3b;">灶</span>
+              <span>灶台笔记</span>
+              <span>· 3.1万 播放</span>
+            </div>
+            <div class="mtc-vacts">
+              <button type="button" class="mtc-act mtc-like"><span class="mtc-ico">♡</span> <b>2,046</b></button>
+              <button type="button" class="mtc-act mtc-fav"><span class="mtc-ico">☆</span> 收藏</button>
+              <button type="button" class="mtc-act mtc-share">分享</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+      <p style="text-align:center;margin:30px 0 0;font-size:13.5px;color:var(--mtc-ink-soft);">
+        作品持续更新中，每日主题大赛入口最新入口同步展示当日热度与评审推荐。
+      </p>
+    </div>
+  </section>
+
+  <!-- TOPICS -->
+  <section class="mtc-sec" id="mtcTopics" style="background:#eef1f9;border-top:1px solid var(--mtc-line);border-bottom:1px solid var(--mtc-line);">
+    <div class="mtc-wrap">
+      <div class="mtc-sec-head">
+        <span class="mtc-sec-kicker">主题专题 / Series</span>
+        <h2>四组长期企划，把每日命题连成一条线</h2>
+        <p>赛事不只是单日竞技。专题企划让命题之间产生呼应，也让品牌与创作者形成更稳定的合作关系。</p>
+      </div>
+      <div class="mtc-topics">
+        <a class="mtc-topic" href="#mtcFocus">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23304a6b'/%3E%3Cg fill='%23f0a35e'%3E%3Crect x='30' y='180' width='50' height='120'/%3E%3Crect x='100' y='150' width='40' height='150'/%3E%3Crect x='160' y='200' width='60' height='100'/%3E%3C/g%3E%3Ccircle cx='300' cy='90' r='44' fill='%23ffd166'/%3E%3C/svg%3E" alt="专题封面：城市清晨的城市影像企划">
+          <h3>城市清晨计划</h3>
+          <p>连续三十天，记录同一座城市醒来的过程。</p>
+          <span class="mtc-tstate">更新中 · 第 18 天</span>
+        </a>
+        <a class="mtc-topic" href="#mtcStream">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23e9e2d0'/%3E%3Cg fill='%238b6f4e'%3E%3Crect x='60' y='140' width='80' height='160' rx='12'/%3E%3Crect x='170' y='100' width='60' height='200' rx='10'/%3E%3Crect x='250' y='160' width='90' height='140' rx='12'/%3E%3C/g%3E%3Ccircle cx='320' cy='70' r='30' fill='%23c9a227'/%3E%3C/svg%3E" alt="专题封面：手作与器物的人物影像企划">
+          <h3>手作与器物</h3>
+          <p>慢下来的手艺，以及愿意等的人。</p>
+          <span class="mtc-tstate">已完成 · 12 期合集</span>
+        </a>
+        <a class="mtc-topic" href="#mtcCreators">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23221633'/%3E%3Cg fill='%23ff6b6b' opacity='0.8'%3E%3Crect x='0' y='200' width='400' height='100'/%3E%3C/g%3E%3Cg stroke='%23ffd166' stroke-width='4' fill='none'%3E%3Ccircle cx='200' cy='120' r='40'/%3E%3Cpath d='M184 100 L220 120 L184 140 Z' fill='%23ffd166'/%3E%3C/g%3E%3C/svg%3E" alt="专题封面：新人创作者扶持企划">
+          <h3>新人第一支片</h3>
+          <p>给第一次举起镜头的你，一条完整的成长路径。</p>
+          <span class="mtc-tstate">报名中 · 本月开放</span>
+        </a>
+        <a class="mtc-topic" href="#mtcAbout">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%231d3b34'/%3E%3Cg fill='%235fbf8f' opacity='0.7'%3E%3Ccircle cx='90' cy='240' r='90'/%3E%3Ccircle cx='260' cy='270' r='100'/%3E%3C/g%3E%3Cg stroke='%23e7f9ef' stroke-width='3' fill='none'%3E%3Cpath d='M120 90 Q200 40 280 90'/%3E%3Cpath d='M140 120 Q200 80 260 120'/%3E%3C/g%3E%3C/svg%3E" alt="专题封面：真实记录与品牌理念企划">
+          <h3>真实的重量</h3>
+          <p>不修饰的生活，也值得被认真看见。</p>
+          <span class="mtc-tstate">长期企划 · 每月评审</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREATORS -->
+  <section class="mtc-sec" id="mtcCreators">
+    <div class="mtc-wrap">
+      <div class="mtc-sec-head">
+        <span class="mtc-sec-kicker">创作者矩阵 / Creators</span>
+        <h2>让创作者被看见，是这个社区最重要的日常</h2>
+        <p>平台持续运营创作者档案与成长记录。点击卡片可查看作者介绍与参赛履历。</p>
+      </div>
+      <div class="mtc-creators">
+        <article class="mtc-creator" data-mtc-creator="巷口阿茶|日常记录与城市影像|每一条巷子都有自己的开场白，我只负责把门推开一点。">
+          <span class="mtc-avatar" style="background:#e07a5f;">巷</span>
+          <h3>巷口阿茶</h3>
+          <div class="mtc-crole">日常记录 · 城市影像</div>
+          <p>擅长用长镜头记录街头小事，作品多次入选编辑推荐。</p>
+          <div class="mtc-cstat"><span>作品 <b>86</b></span><span>粉丝 <b>3.2万</b></span></div>
+        </article>
+        <article class="mtc-creator" data-mtc-creator="剪辑师老周|剪辑教学与叙事结构|把复杂讲简单，比把简单讲复杂难得多。">
+          <span class="mtc-avatar" style="background:#4b6cf6;">周</span>
+          <h3>剪辑师老周</h3>
+          <div class="mtc-crole">教程干货 · 叙事结构</div>
+          <p>十年后期从业者，擅长限时命题的流程化拆解。</p>
+          <div class="mtc-cstat"><span>作品 <b>142</b></span><span>粉丝 <b>7.8万</b></span></div>
+        </article>
+        <article class="mtc-creator" data-mtc-creator="陶土下午茶|手作过程与器物美学|失败的次数比成品多，但成品值得。">
+          <span class="mtc-avatar" style="background:#5d7a4a;">陶</span>
+          <h3>陶土下午茶</h3>
+          <div class="mtc-crole">手作DIY · 器物美学</div>
+          <p>陶瓷与生活器皿创作者，记录完整制作过程与失败经验。</p>
+          <div class="mtc-cstat"><span>作品 <b>64</b></span><span>粉丝 <b>2.4万</b></span></div>
+        </article>
+        <article class="mtc-creator" data-mtc-creator="背包与海|旅行见闻与在地文化|走得慢一点，才能看见路边的东西。">
+          <span class="mtc-avatar" style="background:#4a6f93;">海</span>
+          <h3>背包与海</h3>
+          <div class="mtc-crole">旅行见闻 · 在地文化</div>
+          <p>独自旅行记录者，偏爱小城、海岸与不赶路的行程。</p>
+          <div class="mtc-cstat"><span>作品 <b>97</b></span><span>粉丝 <b>5.1万</b></span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT / LONG TEXT -->
+  <section class="mtc-sec mtc-about" id="mtcAbout">
+    <div class="mtc-wrap">
+      <div class="mtc-sec-head">
+        <span class="mtc-sec-kicker">品牌解析 / About</span>
+        <h2>关于每日主题大赛：一个用命题连接创作者的官方网站</h2>
+        <p>下面的内容，解释我们为什么坚持每天只出一个题目，以及这个决定如何塑造了整个内容生态。</p>
+      </div>
+      <div class="mtc-about-grid">
+        <aside class="mtc-about-aside">
+          <h3>平台档案</h3>
+          <p>每日主题大赛由影像社区团队自 2022 年发起，以「一日一题」的形式持续运营，逐步成长为具有影响力的原创影像赛事平台。</p>
+          <ul>
+            <li><span>发起时间</span><b>2022 年 3 月</b></li>
+            <li><span>已完成期数</span><b>128 期</b></li>
+            <li><span>累计作品</span><b>42,680 件</b></li>
+            <li><span>入驻创作者</span><b>9,600 位</b></li>
+            <li><span>合作品牌</span><b>36 家</b></li>
+            <li><span>运营状态</span><b>持续运营中</b></li>
+          </ul>
+        </aside>
+        <div class="mtc-longtext">
+          <p>
+            「每日主题大赛入口最新入口」这个说法，最早来自社区里的一句玩笑：每天都有新命题，但大家总在问入口在哪。
+            后来我们干脆把这个入口做成一个固定的官方网站聚合页——每天零点更新，列出当日命题、上传通道、评审线、
+            昨日入选作品与今日热点。它不只是一个链接，而是整个平台运转节律的具象化表达。
+          </p>
+          <p>
+            作为一家持续运营的视频品牌与内容平台，我们相信限制会带来创造力。当命题只有一句话，创作者就不得不回到最本质的问题：
+            我想说什么，我怎么让人愿意看完。十二年来积累的行业观察告诉我们，真正有影响力的作品，往往不是在无限自由里诞生的，
+            而是在一个清晰、具体、可被共享的框架中被逼出来的。每日命题就是这样的框架。
+          </p>
+          <h3>命题如何产生</h3>
+          <p>
+            每一期主题由编辑团队与轮值评审共同拟定，选题范围覆盖日常记录、经验分享、教程干货、深度测评、人物访谈、城市探索、
+            在地文化、生活方式、兴趣同好、创作幕后、品牌故事、行业观察、实用技巧、情感故事、治愈影像、知识科普、亲子成长、
+            职场日常、健康运动、美食烹饪、家居收纳、旅行见闻、艺术美学、科技前沿、商业观察、文化访谈、户外活动、萌宠日常、
+            音乐现场与手作DIY 等方向。我们不追求宏大，而是尽量选择那些「人人有素材、但很难拍好」的题目，
+            因为那样的命题最能拉开创作者的差距，也最能体现专业与匠心。
+          </p>
+          <h3>评审与品质控制</h3>
+          <p>
+            平台设置初筛、交叉评审与终审三轮机制。初筛关注完成度与基本规范，交叉评审关注叙事与影像语言，
+            终审由轮值评审与编辑共同决定当日推荐位。所有入选精品内容均标注理由，评审意见对作者公开，
+            这也是我们坚持的「用户至上」原则的一部分——评价可以严格，但必须透明、可复盘、可成长。
+          </p>
+          <h3>品牌与企业如何参与</h3>
+          <p>
+            企业可以通过命题共创、专题企划、创作者扶持计划等方式参与。我们不接受打断观看体验的硬广，
+            而是把品牌放进故事里。过去一年，已有来自家居、户外、食品、科技与出版领域的 36 家品牌与平台合作，
+            共同完成 21 个专题企划。这些合作既为创作者带来实际回报，也让品牌获得了更真实的口碑与影响力。
+          </p>
+          <h3>创作者成长路径</h3>
+          <p>
+            新人从投稿开始，经过作品归档、数据反馈、评审点评，逐步建立自己的创作方向。平台提供脚本灵感、标题建议、
+            剪辑思路等辅助工具，也提供同城与同好社区，方便创作者互相观看、互相点评。我们希望这里是包容的：
+            允许失败、允许试错、允许慢一点。成长不是一场排名，而是一条可以被记录下来的曲线。
+          </p>
+          <p>
+            最后，关于「入口」这件事，我们想说得更直白些：入口存在的意义，是降低参与门槛，而不是制造神秘感。
+            因此无论你从哪个页面进来，都能在两分钟内完成报名、上传与确认。这是我们对「值得信赖」这四个字最朴素的理解。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WALL + REVIEWS -->
+  <section class="mtc-sec" id="mtcWall">
+    <div class="mtc-wrap">
+      <div class="mtc-sec-head">
+        <span class="mtc-sec-kicker">影像墙 / Gallery</span>
+        <h2>用户作品墙：最近七天的高光帧</h2>
+        <p>从竖屏到横屏，从黑白到高饱和，这些帧来自不同的镜头，却共享同一种认真。</p>
+      </div>
+      <div class="mtc-wall">
+        <figure class="mtc-w-big">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%23f4e4c1'/%3E%3Ccircle cx='450' cy='110' r='70' fill='%23e8a33d'/%3E%3Cg fill='%239a6b3f'%3E%3Crect x='0' y='260' width='600' height='140'/%3E%3C/g%3E%3Cg fill='%23ffffff' opacity='0.7'%3E%3Ccircle cx='120' cy='330' r='26'/%3E%3Ccircle cx='220' cy='350' r='34'/%3E%3Ccircle cx='340' cy='320' r='20'/%3E%3C/g%3E%3C/svg%3E" alt="影像墙大图：麦田日落与远行人影">
+          <figcaption>《落日之前，还有三公里》· 背包与海</figcaption>
+        </figure>
+        <figure class="mtc-w-mid">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%231e2b3f'/%3E%3Cg stroke='%2348d1c0' stroke-width='3' fill='none'%3E%3Ccircle cx='200' cy='170' r='70'/%3E%3Ccircle cx='200' cy='170' r='110' opacity='0.5'/%3E%3C/g%3E%3Cg fill='%23ffd166'%3E%3Ccircle cx='200' cy='170' r='16'/%3E%3C/g%3E%3C/svg%3E" alt="影像墙中图：夜间延时星轨与雷达图">
+          <figcaption>《夜里的信号》· 夜行电台</figcaption>
+        </figure>
+        <figure class="mtc-w-sm">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Crect width='400' height='200' fill='%23f2f0eb'/%3E%3Cg fill='%23c2543c'%3E%3Crect x='40' y='80' width='70' height='120'/%3E%3Crect x='150' y='50' width='50' height='150'/%3E%3Crect x='240' y='90' width='90' height='110'/%3E%3C/g%3E%3C/svg%3E" alt="影像墙小图：旧城区红砖墙与晾衣绳">
+          <figcaption>《晾在风里的下午》· 巷口阿茶</figcaption>
+        </figure>
+        <figure class="mtc-w-sm">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Crect width='400' height='200' fill='%23dfeaf7'/%3E%3Cg fill='%234b6cf6' opacity='0.8'%3E%3Crect x='0' y='140' width='400' height='20'/%3E%3C/g%3E%3Cg stroke='%23223355' stroke-width='4' fill='none'%3E%3Cpath d='M40 140 L100 60 L160 140'/%3E%3Cpath d='M160 140 L240 40 L320 140'/%3E%3C/g%3E%3C/svg%3E" alt="影像墙小图：城市天际线简笔剪影">
+          <figcaption>《屋顶的形状》· 慢半拍</figcaption>
+        </figure>
+        <figure class="mtc-w-tall">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 400'%3E%3Crect width='200' height='400' fill='%23312a4a'/%3E%3Cg fill='%23ff9f43'%3E%3Ccircle cx='100' cy='120' r='46'/%3E%3C/g%3E%3Cg fill='%23ffffff' opacity='0.2'%3E%3Crect x='40' y='240' width='120' height='10'/%3E%3Crect x='40' y='270' width='90' height='10'/%3E%3Crect x='40' y='300' width='110' height='10'/%3E%3C/g%3E%3C/svg%3E" alt="影像墙竖图：深夜书桌与台灯剪影">
+          <figcaption>《还没剪完》· 剪辑师老周</figcaption>
+        </figure>
+      </div>
+
+      <div class="mtc-sec-head" style="margin-top:56px;">
+        <span class="mtc-sec-kicker">用户评价 / Voices</span>
+        <h2>他们这样说这个平台</h2>
+        <p>来自参赛者、观众与合作企业的真实反馈，未必一致，但都诚恳。</p>
+      </div>
+      <div class="mtc-reviews">
+        <article class="mtc-review">
+          <div class="mtc-review-top">
+            <span class="mtc-avatar" style="background:#e07a5f;">李</span>
+            <div><h4>李知远</h4><small>参赛者 · 加入 14 个月</small></div>
+          </div>
+          <div class="mtc-stars">★★★★★</div>
+          <p>最初只是因为每天有一个题目，逼着自己开机。现在回头看第一支片和最近一支，差距大到有点不好意思。评审意见写得很细，这点很难得。</p>
+        </article>
+        <article class="mtc-review">
+          <div class="mtc-review-top">
+            <span class="mtc-avatar" style="background:#4b6cf6;">阿</span>
+            <div><h4>阿吉</h4><small>观众 · 长期收藏</small></div>
+          </div>
+          <div class="mtc-stars">★★★★☆</div>
+          <p>内容质量整体稳定，偶有惊喜。喜欢专题企划，把零散的单条作品串起来看，会有完全不同的感受。希望专题更新再快一点。</p>
+        </article>
+        <article class="mtc-review">
+          <div class="mtc-review-top">
+            <span class="mtc-avatar" style="background:#5d7a4a;">木</span>
+            <div><h4>木木</h4><small>手作创作者 · 加入 8 个月</small></div>
+          </div>
+          <div class="mtc-stars">★★★★★</div>
+          <p>这里对手作类内容很友好，不会因为节奏慢被算法埋掉。我的粉丝不多，但评论区的交流很实在，会指出技术细节，这在别处很少见。</p>
+        </article>
+        <article class="mtc-review">
+          <div class="mtc-review-top">
+            <span class="mtc-avatar" style="background:#9b7bd1;">周</span>
+            <div><h4>周未</h4><small>品牌合作方 · 市场负责人</small></div>
+          </div>
+          <div class="mtc-stars">★★★★☆</div>
+          <p>合作流程清晰，命题共创的沟通也比较顺。最大的收获是拿到了真实口碑，而不是一堆播放数字。作为企业方，我们更看重长期关系。</p>
+        </article>
+        <article class="mtc-review">
+          <div class="mtc-review-top">
+            <span class="mtc-avatar" style="background:#4a6f93;">许</span>
+            <div><h4>许一川</h4><small>新人 · 加入 3 周</small></div>
+          </div>
+          <div class="mtc-stars">★★★★☆</div>
+          <p>第一次投稿其实挺紧张的，怕不合格。结果收到了比较温和但有内容的意见，知道下一步该练什么。入口确实好找，两分钟就传完了。</p>
+        </article>
+        <article class="mtc-review">
+          <div class="mtc-review-top">
+            <span class="mtc-avatar" style="background:#c98b3b;">崔</span>
+            <div><h4>崔桥</h4><small>观众 · 每晚必看</small></div>
+          </div>
+          <div class="mtc-stars">★★★★★</div>
+          <p>最喜欢看同一命题下的不同答案，有时候十个人拍同一个主题，能看出十种生活方式。这种对照本身就是内容。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS -->
+  <section class="mtc-sec" id="mtcNews" style="background:#eef1f9;border-top:1px solid var(--mtc-line);border-bottom:1px solid var(--mtc-line);">
+    <div class="mtc-wrap">
+      <div class="mtc-sec-head">
+        <span class="mtc-sec-kicker">企业动态 / News</span>
+        <h2>官方发布与内容更新日志</h2>
+        <p>平台保持每周至少一次的功能或规则更新，重要变动都会提前公告。</p>
+      </div>
+      <div class="mtc-news">
+        <article class="mtc-newscard">
+          <div class="mtc-newsdate"><b>19</b><span>2026.11</span></div>
+          <div>
+            <h3>第 128 期命题「城市清晨的十分钟」开放报名</h3>
+            <p>本期限定单镜头、时长十分钟以内，报名与上传同步开放至当日 23:00，评审于次日中午公布推荐名单。</p>
+          </div>
+        </article>
+        <article class="mtc-newscard">
+          <div class="mtc-newsdate"><b>16</b><span>2026.11</span></div>
+          <div>
+            <h3>11 月创作者激励计划细则发布</h3>
+            <p>面向持续参赛三个月以上的创作者，优质作品将获得内容生态推荐位与专题合作机会，报名通道已开放。</p>
+          </div>
+        </article>
+        <article class="mtc-newscard">
+          <div class="mtc-newsdate"><b>12</b><span>2026.11</span></div>
+          <div>
+            <h3>上传功能升级：支持 4K 高清与自定义封面</h3>
+            <p>创作者可自行选择封面帧并填写标签，投稿指南已同步修订，旧版本上传记录不受影响。</p>
+          </div>
+        </article>
+        <article class="mtc-newscard">
+          <div class="mtc-newsdate"><b>08</b><span>2026.11</span></div>
+          <div>
+            <h3>第 127 期「手作一日」获奖名单公示</h3>
+            <p>共 24 件作品入选精品内容，评审意见已归档至作者后台，公示期为五个工作日，欢迎监督与反馈。</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="mtc-sec" id="mtcFaq">
+    <div class="mtc-wrap">
+      <div class="mtc-sec-head" style="text-align:center;margin-left:auto;margin-right:auto;">
+        <span class="mtc-sec-kicker">帮助中心 / FAQ</span>
+        <h2>常见问题</h2>
+        <p>关于入口、投稿、评审与版权的说明，先看这里，通常能解决八成的疑问。</p>
+      </div>
+      <div class="mtc-faq">
+        <details open>
+          <summary>每日主题大赛入口最新入口在哪里更新？</summary>
+          <div class="mtc-faq-a">官方网站每日 00:00 更新当日命题与上传通道，首屏与「今日焦点」板块同步刷新。建议收藏首页，或在移动端将页面添加到主屏，避免每日重复查找。</div>
+        </details>
+        <details>
+          <summary>投稿有设备和画幅限制吗？</summary>
+          <div class="mtc-faq-a">没有硬性设备门槛，手机、相机、运动相机均可。画幅横竖不限，但需保证画面稳定与声音清晰。部分命题会额外规定时长或镜头数量，以当期公告为准。</div>
+        </details>
+        <details>
+          <summary>同一天可以提交多件作品吗？</summary>
+          <div class="mtc-faq-a">可以提交，但每位作者每期仅有一件作品进入推荐评选。多件作品会全部归档展示，方便你记录探索过程。</div>
+        </details>
+        <details>
+          <summary>评审标准是什么？</summary>
+          <div class="mtc-faq-a">主要看四点：与命题的贴合度、叙事完整度、影像语言与制作完成度。我们不以粉丝量或设备规格作为评分依据，新人同样有机会获得推荐。</div>
+        </details>
+        <details>
+          <summary>作品版权归属如何？</summary>
+          <div class="mtc-faq-a">作品著作权归创作者所有。平台在获得授权的前提下，用于站内展示、专题推荐与活动宣传；如需商业使用，会另行签署授权协议并支付费用。</div>
+        </details>
+        <details>
+          <summary>如何申请成为合作品牌或共创命题方？</summary>
+          <div class="mtc-faq-a">可通过页面底部的合作联系表单提交资料，说明行业、目标与预算周期。我们通常会在三个工作日内回复，并安排一次线上沟通。</div>
+        </details>
+        <details>
+          <summary>错过了当期主题，还能补交吗？</summary>
+          <div class="mtc-faq-a">当期命题通道关闭后不可补交，但你可以把作品投到「自由创作区」，或留到后续相似命题再提交。所有历史命题都会保留在专题页中。</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="mtc-sec" id="mtcContact" style="padding-top:20px;">
+    <div class="mtc-wrap">
+      <div class="mtc-contact">
+        <div>
+          <h2>联系我们，或直接开始今天的作品</h2>
+          <p>无论你是创作者、观众还是品牌方，我们都愿意聊聊。投稿入口每日开放，合作咨询按工作日回复。</p>
+          <ul class="mtc-contact-list">
+            <li>投稿与参赛：提交页面内表单</li>
+            <li>品牌合作：brand@mtc-arena.cn</li>
+            <li>内容反馈：feedback@mtc-arena.cn</li>
+            <li>工作时间：周一至周五 10:00-19:00</li>
+          </ul>
+        </div>
+        <form class="mtc-contact-form" id="mtcContactForm">
+          <input type="text" name="name" placeholder="你的称呼" required>
+          <input type="email" name="email" placeholder="联系邮箱" required>
+          <textarea name="msg" placeholder="想说的话、合作意向或作品链接" required></textarea>
+          <button type="submit" class="mtc-btn-gold">发送信息</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="mtc-footer">
+  <div class="mtc-wrap">
+    <div class="mtc-footer-grid">
+      <div>
+        <div class="mtc-footer-brand">
+          <span class="mtc-logo-mark" aria-hidden="true"></span>
+          <strong>每日主题大赛</strong>
+        </div>
+        <p>
+          每日主题大赛官方网站，一个以每日命题为核心的原创影像社区与赛事平台。
+          我们持续运营内容生态，深耕垂直领域，坚持正版与原创，为创作者与企业提供值得信赖的表达空间。
+        </p>
+      </div>
+      <div>
+        <h4>快速入口</h4>
+        <ul>
+          <li><a href="#mtcFocus">今日命题</a></li>
+          <li><a href="#mtcStream">热门作品</a></li>
+          <li><a href="#mtcTopics">专题企划</a></li>
+          <li><a href="#mtcCreators">创作者档案</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>关于平台</h4>
+        <ul>
+          <li><a href="#mtcAbout">品牌故事</a></li>
+          <li><a href="#mtcNews">企业动态</a></li>
+          <li><a href="#mtcFaq">帮助中心</a></li>
+          <li><a href="#mtcContact">合作联系</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>参与方式</h4>
+        <ul>
+          <li><a href="#mtcHome">注册与报名</a></li>
+          <li><a href="#mtcFaq">投稿指南</a></li>
+          <li><a href="#mtcFaq">评审规则</a></li>
+          <li><a href="#mtcContact">意见反馈</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mtc-footer-bottom">
+      <span>© 2022-2026 每日主题大赛 官方网站 · 版权所有</span>
+      <span>持续运营中 · 精品内容 · 官方发布</span>
+    </div>
+  </div>
+</footer>
+
+<button type="button" class="mtc-top-btn" id="mtcTopBtn" aria-label="回到顶部">↑</button>
+<div class="mtc-toast" id="mtcToast" role="status" aria-live="polite"></div>
+
+<div class="mtc-modal" id="mtcModal" role="dialog" aria-modal="true" aria-labelledby="mtcModalTitle">
+  <div class="mtc-modal-box">
+    <button type="button" class="mtc-modal-close" id="mtcModalClose" aria-label="关闭">×</button>
+    <h3 id="mtcModalTitle">投稿参赛</h3>
+    <p id="mtcModalDesc">填写基础信息后，我们会在一个工作日内通过邮件发送上传指引与当期命题细则。</p>
+    <form id="mtcModalForm">
+      <input type="text" name="author" placeholder="创作者昵称" required>
+      <input type="email" name="mail" placeholder="接收指引的邮箱" required>
+      <textarea name="idea" placeholder="一句话描述你的创作想法"></textarea>
+      <button type="submit" class="mtc-btn-gold" style="align-self:flex-start;padding:10px 24px;">提交报名</button>
+    </form>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var toastEl = document.getElementById("mtcToast");
+  var toastTimer = null;
+  function showToast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add("mtc-show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove("mtc-show"); }, 2200);
+  }
+
+  /* mobile nav */
+  var burger = document.getElementById("mtcBurger");
+  var nav = document.getElementById("mtcNav");
+  burger.addEventListener("click", function(){
+    var open = nav.classList.toggle("mtc-nav-open");
+    burger.setAttribute("aria-expanded", open ? "true" : "false");
+    burger.textContent = open ? "✕" : "☰";
+  });
+  nav.addEventListener("click", function(e){
+    if(e.target.tagName === "A"){
+      nav.classList.remove("mtc-nav-open");
+      burger.setAttribute("aria-expanded","false");
+      burger.textContent = "☰";
+      nav.querySelectorAll("a").forEach(function(a){ a.classList.remove("mtc-nav-active"); });
+      e.target.classList.add("mtc-nav-active");
+    }
+  });
+
+  /* search */
+  var searchInput = document.getElementById("mtcSearchInput");
+  var searchHint = document.getElementById("mtcSearchHint");
+  var searchData = [
+    {t:"城市清晨的十分钟", d:"第 128 期命题 · 报名中"},
+    {t:"手作与器物", d:"专题企划 · 12 期合集"},
+    {t:"剪辑师老周", d:"创作者 · 教程干货"},
+    {t:"巷口阿茶", d:"创作者 · 日常记录"},
+    {t:"新人第一支片", d:"专题企划 · 本月开放"},
+    {t:"投稿指南与评审规则", d:"帮助中心"}
+  ];
+  function renderSearch(keyword){
+    var kw = (keyword || "").trim();
+    var list = kw ? searchData.filter(function(i){ return i.t.indexOf(kw) > -1 || i.d.indexOf(kw) > -1; }) : searchData.slice(0,4);
+    if(!list.length){
+      searchHint.innerHTML = '<p>没有找到「'+ kw.replace(/[<>&]/g,"") +'」相关内容，试试「命题」「创作者」或「专题」。</p>';
+    } else {
+      searchHint.innerHTML = '<p>推荐结果</p>' + list.map(function(i){
+        return '<a href="#mtcStream">'+ i.t +' <span style="color:#8b91a8;font-size:12px;">· '+ i.d +'</span></a>';
+      }).join("");
+    }
+    searchHint.classList.add("mtc-open");
+  }
+  searchInput.addEventListener("focus", function(){ renderSearch(searchInput.value); });
+  searchInput.addEventListener("input", function(){ renderSearch(searchInput.value); });
+  document.getElementById("mtcSearchBtn").addEventListener("click", function(){
+    var v = searchInput.value.trim();
+    showToast(v ? "正在筛选与「"+ v +"」相关的内容" : "请输入主题或创作者名称");
+    renderSearch(v);
+  });
+  document.addEventListener("click", function(e){
+    if(!e.target.closest(".mtc-search")){ searchHint.classList.remove("mtc-open"); }
+  });
+
+  /* like & fav & share */
+  document.addEventListener("click", function(e){
+    var like = e.target.closest(".mtc-like");
+    if(like){
+      var b = like.querySelector("b");
+      var n = parseInt(b.textContent.replace(/,/g,""),10) || 0;
+      var on = like.classList.toggle("mtc-on");
+      like.querySelector(".mtc-ico").textContent = on ? "♥" : "♡";
+      b.textContent = on ? (n+1).toLocaleString("en-US") : (n-1).toLocaleString("en-US");
+      return;
+    }
+    var fav = e.target.closest(".mtc-fav");
+    if(fav){
+      var f = fav.classList.toggle("mtc-on");
+      fav.querySelector(".mtc-ico").textContent = f ? "★" : "☆";
+      showToast(f ? "已加入收藏" : "已取消收藏");
+      return;
+    }
+    var share = e.target.closest(".mtc-share");
+    if(share){
+      var link = window.location.href.split("#")[0] + "#mtcFocus";
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(link).then(function(){ showToast("链接已复制，可分享给同好"); }, function(){ showToast("复制失败，请手动复制地址栏链接"); });
+      } else {
+        showToast("可复制地址栏链接分享给朋友");
+      }
+      return;
+    }
+  });
+
+  /* creators modal */
+  var modal = document.getElementById("mtcModal");
+  var modalTitle = document.getElementById("mtcModalTitle");
+  var modalDesc = document.getElementById("mtcModalDesc");
+  var modalForm = document.getElementById("mtcModalForm");
+  function openModal(title, desc, isCreator){
+    modalTitle.textContent = title;
+    modalDesc.textContent = desc;
+    modalForm.style.display = isCreator ? "none" : "flex";
+    modal.classList.add("mtc-open");
+  }
+  function closeModal(){ modal.classList.remove("mtc-open"); }
+  document.getElementById("mtcModalClose").addEventListener("click", closeModal);
+  modal.addEventListener("click", function(e){ if(e.target === modal){ closeModal(); } });
+  document.addEventListener("keydown", function(e){ if(e.key === "Escape"){ closeModal(); } });
+
+  document.querySelectorAll(".mtc-creator").forEach(function(card){
+    card.addEventListener("click", function(){
+      var parts = (card.getAttribute("data-mtc-creator") || "").split("|");
+      var name = parts[0] || "创作者";
+      var role = parts[1] || "";
+      var bio = parts[2] || "";
+      openModal(name, role + "。" + bio, true);
+    });
+  });
+
+  /* submit modals */
+  var submitBtns = [document.getElementById("mtcSubmitBtn"), document.getElementById("mtcHeroSubmit"), document.getElementById("mtcJoinBtn")];
+  submitBtns.forEach(function(btn){
+    if(!btn) return;
+    btn.addEventListener("click", function(){
+      openModal("投稿参赛", "填写基础信息后，我们会在一个工作日内通过邮件发送上传指引与当期命题细则。", false);
+    });
+  });
+  modalForm.addEventListener("submit", function(e){
+    e.preventDefault();
+    closeModal();
+    showToast("报名信息已提交，请留意邮箱通知");
+    modalForm.reset();
+  });
+
+  /* contact form */
+  document.getElementById("mtcContactForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    this.reset();
+    showToast("信息已发送，我们会在工作日尽快回复");
+  });
+
+  /* back to top */
+  var topBtn = document.getElementById("mtcTopBtn");
+  window.addEventListener("scroll", function(){
+    if(window.scrollY > 520){ topBtn.classList.add("mtc-show"); }
+    else { topBtn.classList.remove("mtc-show"); }
+  });
+  topBtn.addEventListener("click", function(){ window.scrollTo({top:0,behavior:"smooth"}); });
+
+  /* counters */
+  var counters = document.querySelectorAll("[data-mtc-count]");
+  var done = false;
+  function runCounters(){
+    if(done) return;
+    done = true;
+    counters.forEach(function(el){
+      var target = parseFloat(el.getAttribute("data-mtc-count"));
+      var cur = 0;
+      var step = Math.max(1, Math.round(target / 60));
+      var timer = setInterval(function(){
+        cur += step;
+        if(cur >= target){ cur = target; clearInterval(timer); }
+        el.textContent = cur.toLocaleString("en-US");
+      }, 20);
+    });
+  }
+  if("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ runCounters(); io.disconnect(); } });
+    }, {threshold:.4});
+    var statsEl = document.querySelector(".mtc-stats");
+    if(statsEl){ io.observe(statsEl); }
+  } else { runCounters(); }
+
+})();
+</script>
+</body>
+  </html>
